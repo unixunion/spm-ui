@@ -1,27 +1,25 @@
-# [ngBoilerplate](http://joshdmiller.github.com/ng-boilerplate) [![Build Status](https://api.travis-ci.org/ngbp/ngbp.png?branch=v0.3.2-release)](https://travis-ci.org/ngbp/ngbp)
-
-An opinionated kickstarter for [AngularJS](http://angularjs.org) projects.
+# [spm-UI]
 
 ***
 
 ## Quick Start
 
-Install Node.js and then:
 
 ```sh
-$ git clone git://github.com/joshdmiller/ng-boilerplate
-$ cd ng-boilerplate
+$ git clone https://github.com/unixunion/spm-ui.git
+$ cd spm-ui
 $ sudo npm -g install grunt-cli karma bower
 $ npm install
 $ bower install
 $ grunt watch
 ```
 
-Finally, open `file:///path/to/ng-boilerplate/build/index.html` in your browser.
+Finally, open `file:///path/to/spm-ui/build/index.html` in your browser.
 
 Happy hacking!
 
 ## Purpose
+spm-ui is based on ngBoilerplate
 
 `ngBoilerplate` is designed to make life easy by providing a basic framework
 with which to kickstart AngularJS projects. It contains a best-practice
