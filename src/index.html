@@ -25,15 +25,27 @@
   <!--</div>-->
 
 
-      <div ng-controller="NotifyCtrl">
-          <popdown>
-              <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="hide()">{{alert.message}}</alert>
-          </popdown>
-          <button class='btn btn-default' ng-click="success('I am a success!')">Success Alert</button>
+  <!-- create a instance of NotifyCtrl -->
+  <div ng-controller="NotifyCtrl">
+      <popdown>
+          <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="hide()">{{alert.message}}</alert>
+      </popdown>
+      <button class='btn btn-default' ng-click="success('I am a success!')">Success Alert</button>
 
-          <div ng-controller="WebsocketCtrl"> </div>
+      <!-- add a websocket client to this controller -->
+      <div ng-controller="WebsocketCtrl"></div>
 
-      </div>
+  </div>
+
+
+  <div ng-controller="LeadCtrl">
+    <leads>
+    </leads>
+
+    <div ng-controller="WebsocketCtrl"></div>
+  </div>
+
+
 
 
 

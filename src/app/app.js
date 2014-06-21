@@ -4,7 +4,8 @@ angular.module( 'SPMui', [
   'ui.router',
 //  'ui.bootstrap',
   'deblox.websocket',
-  'DebloxNotifyModule'
+  'DebloxNotifyModule',
+  'LeadModule'
 ])
 
 
@@ -28,6 +29,11 @@ angular.module( 'SPMui', [
     // notifies when $broadcast.success()...
     $scope.success = function(msg) { $scope.$broadcast('success', msg); };
     $scope.error   = function(msg) { $scope.$broadcast('error', msg); };
+})
+
+
+.controller('LeadCtrl', function($scope) {
+    $scope.leads = [];
 });
 
 //function AlertDemoCtrl($scope) {

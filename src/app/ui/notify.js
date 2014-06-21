@@ -30,10 +30,15 @@ DebloxNotifyModule.directive('popdown', function() {
             $scope.status = null;
             $scope.message = null;
 
-            $scope.alerts = [
-                { type: 'danger', message: 'Oh snap! Change a few things up and try submitting again.' },
-                { type: 'success', message: 'Well done! You successfully read this important alert message.' }
-            ];
+//            $scope.alerts = [
+//                { type: 'danger', message: 'Oh snap! Change a few things up and try submitting again.' },
+//                { type: 'success', message: 'Well done! You successfully read this important alert message.' }
+//            ];
+
+            $scope.$on('event', function(event, msg) {
+                console.log("notify: got event");
+                console.log($scope);
+            });
 
             $scope.$on('success', function(event, msg) {
                 console.log("got success");

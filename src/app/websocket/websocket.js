@@ -18,18 +18,14 @@ angular.module('controllers', [])
 
         WebSocket.onopen(function() {
             console.log('connection');
-            WebSocket.send('message');
+//            WebSocket.send('message');
         });
 
         WebSocket.onmessage(function(event) {
             console.log('message: ', event.data);
             console.log($scope);
-//            notify.addAlert();
-//            success('I am a success!');
-//            $scope.$broadcast(success("foo"));
-//            notify("success", event.data);
-             $scope.$parent.$broadcast('success', event.data);
+            // send the event to whatever scope has included this websocket controller.
+            $scope.$parent.$broadcast('event', event.data);
         });
-
 });
 
