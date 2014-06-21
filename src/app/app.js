@@ -1,10 +1,12 @@
-angular.module( 'ngBoilerplate', [
+angular.module( 'SPMui', [
   'templates-app',
   'templates-common',
-  'ngBoilerplate.home',
-  'ngBoilerplate.about',
-  'ui.router'
+  'ui.router',
+//  'ui.bootstrap',
+  'deblox.websocket',
+  'DebloxNotifyModule'
 ])
+
 
 .config( function myAppConfig ( $stateProvider, $urlRouterProvider ) {
   $urlRouterProvider.otherwise( '/home' );
@@ -16,10 +18,31 @@ angular.module( 'ngBoilerplate', [
 .controller( 'AppCtrl', function AppCtrl ( $scope, $location ) {
   $scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams){
     if ( angular.isDefined( toState.data.pageTitle ) ) {
-      $scope.pageTitle = toState.data.pageTitle + ' | ngBoilerplate' ;
+      $scope.pageTitle = toState.data.pageTitle + ' | SPMui' ;
     }
   });
 })
 
-;
+.controller('NotifyCtrl', function($scope) {
+    console.log($scope);
+    // notifies when $broadcast.success()...
+    $scope.success = function(msg) { $scope.$broadcast('success', msg); };
+    $scope.error   = function(msg) { $scope.$broadcast('error', msg); };
+});
+
+//function AlertDemoCtrl($scope) {
+//    $scope.alerts = [
+//        { type: 'danger', msg: 'Oh snap! Change a few things up and try submitting again.' },
+//        { type: 'success', msg: 'Well done! You successfully read this important alert message.' }
+//    ];
+//
+//    $scope.addAlert = function() {
+//        $scope.alerts.push({msg: 'message!'});
+//    };
+//
+//    $scope.closeAlert = function(index) {
+//        $scope.alerts.splice(index, 1);
+//    };
+//}
+
 
