@@ -16,14 +16,13 @@
     <!-- compiled JavaScript --><% scripts.forEach( function ( file ) { %>
     <script type="text/javascript" src="<%= file %>"></script><% }); %>
 
+      <!-- This allows the routProvider to work -->
+      <script type="text/javascript">
+          angular.element(document.getElementsByTagName('head')).append(angular.element('<base href="' + window.location.pathname + '" />'));
+      </script>
+
   </head>
-  <body>
-
-  <!--<div ng-controller="AlertDemoCtrl">-->
-      <!--<alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert>-->
-      <!--<button class='btn btn-default' ng-click="addAlert()">Add Alert</button>-->
-  <!--</div>-->
-
+  <body ng-controller="AppCtrl">
 
   <!-- create a instance of NotifyCtrl -->
   <div ng-controller="NotifyCtrl">
@@ -32,20 +31,34 @@
       </popdown>
       <button class='btn btn-default' ng-click="success('I am a success!')">Success Alert</button>
 
-      <!-- add a websocket client to this controller -->
+      <!-- add a websocket client to the NotifyCtrl, called NotiFyCtrl.event() -->
       <div ng-controller="WebsocketCtrl"></div>
 
   </div>
 
 
+  <!-- The lead controller -->
   <div ng-controller="LeadCtrl">
     <leads>
     </leads>
-
+    <!-- a instance of websocketctl for the leadctrl, called LeadCtrl.event() -->
     <div ng-controller="WebsocketCtrl"></div>
   </div>
 
+  <div ng-controller="LeadAcceptCtrl">
+      <div ng-view></div>
 
+  </div>
+
+  <a href="leads/accept/1">Accept 1</a>
+
+  <pre>$location.path() = {{$location.path()}}</pre>
+  <pre>$route.current.templateUrl = {{$route.current.templateUrl}}</pre>
+  <pre>$route.current.params = {{$route.current.params}}</pre>
+  <pre>$route.current.scope.name = {{$route.current.scope.name}}</pre>
+  <pre>$routeParams = {{$routeParams}}</pre>
+
+  </body>
 
 
 

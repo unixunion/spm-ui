@@ -16,12 +16,11 @@ angular.module( 'SPMui', [
 .run( function run () {
 })
 
-.controller( 'AppCtrl', function AppCtrl ( $scope, $location ) {
-  $scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams){
-    if ( angular.isDefined( toState.data.pageTitle ) ) {
-      $scope.pageTitle = toState.data.pageTitle + ' | SPMui' ;
-    }
-  });
+.controller('AppCtrl', function($scope, $route, $routeParams, $location) {
+    console.log("AppCtrl called");
+    $scope.$route = $route;
+    $scope.$location = $location;
+    $scope.$routeParams = $routeParams;
 })
 
 .controller('NotifyCtrl', function($scope) {
@@ -33,6 +32,7 @@ angular.module( 'SPMui', [
 
 
 .controller('LeadCtrl', function($scope) {
+    console.log("Lead Controller");
     $scope.leads = [];
 });
 
